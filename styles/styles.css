@@ -11,30 +11,52 @@
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* colors - Atlas Copco Group Design System (official) */
+  --background-color: #ffffff;
+  --light-color: #eef1f3;
+  --dark-color: #1a1a1a;
+  --text-color: #1a1a1a;
+  --link-color: #123f6d;
+  --link-hover-color: #0d2d4f;
+  --color-primary: #123f6d;
+  --color-primary-dark: #0d2d4f;
+  --color-secondary: #e7ebf0;
+  --color-border: #d4d4d4;
+  --color-text-light: #6e6e6e;
+  --color-accent: #123f6d;
+  --color-brand-teal: #054e5a;
+  --color-brand-teal-light: #e6edee;
+  --color-brand-grey: #a1a9b4;
+  --color-brand-gold: #e1b77e;
+  --color-brand-green: #5d7875;
+  --color-brand-light-green: #ced9d7;
+  --color-card-bg: #ffffff;
+  --color-card-shadow: rgba(0 0 0 / 8%);
 
-  /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  /* fonts - Atlas Copco uses Noto Sans / system sans */
+  --body-font-family: 'Noto Sans', 'Segoe UI', arial, helvetica, sans-serif;
+  --heading-font-family: 'Noto Sans', 'Segoe UI', arial, helvetica, sans-serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  /* heading sizes - from live production CSS */
+  --heading-font-size-xxl: 56px;
+  --heading-font-size-xl: 28px;
+  --heading-font-size-l: 22px;
+  --heading-font-size-m: 18px;
+  --heading-font-size-s: 16px;
+  --heading-font-size-xs: 14px;
+
+  /* spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-xxl: 64px;
 
   /* nav height */
   --nav-height: 64px;
@@ -42,31 +64,25 @@
 
 /* fallback fonts */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
+  font-family: segoe-ui-fallback;
+  size-adjust: 100%;
   src: local('Arial');
 }
 
 @media (width >= 900px) {
   :root {
     /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
+    --body-font-size-m: 16px;
+    --body-font-size-s: 14px;
+    --body-font-size-xs: 12px;
 
     /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    --heading-font-size-xxl: 40px;
+    --heading-font-size-xl: 32px;
+    --heading-font-size-l: 24px;
+    --heading-font-size-m: 20px;
+    --heading-font-size-s: 18px;
+    --heading-font-size-xs: 16px;
   }
 }
 
@@ -108,8 +124,23 @@ h6 {
   margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
   font-weight: 600;
-  line-height: 1.25;
+  line-height: 1.3;
   scroll-margin: 40px;
+  color: var(--dark-color);
+}
+
+h1 {
+  font-weight: 400;
+  font-size: var(--heading-font-size-xxl);
+  line-height: 1.14;
+  letter-spacing: -1px;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.4;
+  margin-bottom: 16px;
 }
 
 h1 { font-size: var(--heading-font-size-xxl); }
@@ -158,6 +189,7 @@ a:any-link {
   color: var(--link-color);
   text-decoration: none;
   overflow-wrap: break-word;
+  transition: color 0.2s;
 }
 
 a:hover {
@@ -199,18 +231,23 @@ button.button:disabled {
 
 a.button.primary,
 button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
-  color: var(--background-color);
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: var(--body-font-size-s);
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
+  border-color: var(--color-primary-dark);
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
 }
 
 a.button.primary[aria-disabled="true"],
@@ -226,18 +263,23 @@ button.button.primary:disabled:focus-visible {
 
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--text-color);
+  border-color: var(--color-primary);
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--color-primary);
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: var(--body-font-size-s);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  border-color: var(--color-primary-dark);
+  background-color: var(--color-secondary);
+  color: var(--color-primary-dark);
 }
 
 a.button.secondary[aria-disabled="true"],
@@ -319,7 +361,7 @@ main > .section:first-of-type {
 /* section metadata */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  background-color: var(--color-brand-teal-light, #e8edef);
   margin: 0;
-  padding: 40px 0;
+  padding: 60px 0;
 }

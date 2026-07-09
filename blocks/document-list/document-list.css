@@ -1,0 +1,68 @@
+.document-list .document-list-inner {
+  padding: var(--spacing-md) 0;
+}
+
+.document-list .document-list-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.document-list .document-list-group:last-child {
+  margin-bottom: 0;
+}
+
+.document-list .document-list-category {
+  font-size: var(--body-font-size-s);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-light);
+  margin: 0 0 var(--spacing-sm);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.document-list .document-list-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.document-list .document-list-links li {
+  padding: var(--spacing-sm) 0;
+  border-bottom: 1px solid var(--light-color);
+}
+
+.document-list .document-list-links li:last-child {
+  border-bottom: none;
+}
+
+.document-list .document-list-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-primary);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.document-list .document-list-link:hover {
+  text-decoration: underline;
+}
+
+.document-list .document-list-link::before {
+  content: '📄';
+  font-size: 1em;
+  flex-shrink: 0;
+}
+
+.document-list .document-list-link[data-filetype="PDF"]::before {
+  content: '📕';
+}
+
+.document-list .document-list-link[data-filetype="XLSX"]::before {
+  content: '📊';
+}
+
+.document-list .document-list-link[data-filetype="PPTX"]::before {
+  content: '📽️';
+}

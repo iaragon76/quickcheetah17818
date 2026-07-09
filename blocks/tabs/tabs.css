@@ -1,0 +1,207 @@
+/* Tabs container */
+.tabs-container {
+  background-color: #ffffff;
+}
+
+.tabs-container > div > h2 {
+  color: var(--text-color);
+  margin-bottom: var(--spacing-lg);
+}
+
+.tabs-container > div > .tabs-wrapper {
+  background: #ffffff;
+  padding: var(--spacing-lg);
+  border-radius: 0;
+}
+
+.tabs .tabs-list {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-lg);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs .tabs-list::-webkit-scrollbar {
+  display: none;
+}
+
+.tabs .tabs-tab {
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: 500;
+  color: var(--color-text-light);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.tabs .tabs-tab:hover {
+  color: #054e5a;
+}
+
+.tabs .tabs-tab--active {
+  color: #054e5a;
+  border-bottom-color: #054e5a;
+  font-weight: 600;
+}
+
+.tabs .tabs-panels {
+  padding: 0;
+}
+
+.tabs .tabs-panel {
+  animation: tabFadeIn 0.2s ease;
+}
+
+@keyframes tabFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Accordion inside tabs */
+.tabs .tabs-accordion-item {
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.tabs .tabs-accordion-item:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabs .tabs-accordion-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-color);
+  list-style: none;
+}
+
+.tabs .tabs-accordion-heading::-webkit-details-marker {
+  display: none;
+}
+
+.tabs .tabs-accordion-heading:hover {
+  background-color: #f8f8f8;
+}
+
+.tabs .tabs-accordion-icon {
+  width: 18px;
+  height: 18px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.tabs .tabs-accordion-icon::before,
+.tabs .tabs-accordion-icon::after {
+  content: '';
+  position: absolute;
+  background-color: #054e5a;
+  transition: transform 0.3s;
+}
+
+.tabs .tabs-accordion-icon::before {
+  top: 50%;
+  left: 2px;
+  right: 2px;
+  height: 2px;
+  transform: translateY(-50%);
+}
+
+.tabs .tabs-accordion-icon::after {
+  left: 50%;
+  top: 2px;
+  bottom: 2px;
+  width: 2px;
+  transform: translateX(-50%);
+}
+
+.tabs details[open] .tabs-accordion-icon::after {
+  transform: translateX(-50%) rotate(90deg);
+  opacity: 0;
+}
+
+.tabs .tabs-accordion-body {
+  padding: 0 20px 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (width >= 900px) {
+  .tabs .tabs-accordion-body {
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .tabs .tabs-accordion-body .tabs-doc-group:first-child {
+    grid-row: 1 / -1;
+  }
+}
+
+/* Document list inside accordion */
+.tabs .tabs-doc-category {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-light);
+  margin: 12px 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.tabs .tabs-doc-category:first-child {
+  margin-top: 0;
+}
+
+.tabs .tabs-doc-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs .tabs-doc-links li {
+  padding: 6px 0;
+}
+
+.tabs .tabs-doc-links li:last-child {
+  border-bottom: none;
+}
+
+.tabs .tabs-doc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #123f6d;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.tabs .tabs-doc-link:hover {
+  text-decoration: underline;
+}
+
+.tabs .tabs-doc-link::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: #123f6d;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'%3E%3Cpath d='M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4'/%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3Cpath d='M12 15V3'/%3E%3C/svg%3E") no-repeat center;
+  mask-size: contain;
+  flex-shrink: 0;
+}

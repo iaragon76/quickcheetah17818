@@ -1,0 +1,21 @@
+[
+  {
+    "id": "tabs",
+    "fields": [
+      { "component": "text", "name": "tabLabel", "label": "Tab Label" },
+      { "component": "richtext", "name": "tabContent", "label": "Tab Content" }
+    ]
+  },
+  {
+    "id": "breadcrumb",
+    "fields": [
+      { "component": "richtext", "name": "links", "label": "Breadcrumb Links" }
+    ]
+  },
+  {
+    "id": "columns",
+    "fields": [
+      { "component": "richtext", "name": "column", "label": "Column Content" }
+    ]
+  }
+]
