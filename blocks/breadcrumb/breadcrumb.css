@@ -1,51 +1,53 @@
-.breadcrumb {
-  padding: var(--spacing-md) 0;
-}
-
-.breadcrumb .breadcrumb-list {
+/* cmp-breadcrumb: AEM Core Component - Breadcrumb */
+.breadcrumb .cmp-breadcrumb__list {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 12px 0;
   gap: 12px;
 }
 
-.breadcrumb .breadcrumb-item {
+.breadcrumb .cmp-breadcrumb__item {
   display: flex;
   align-items: center;
-  font-size: 16px;
+  gap: 12px;
 }
 
-.breadcrumb .breadcrumb-item::after {
+.breadcrumb .cmp-breadcrumb__item::after {
   content: '';
   display: inline-block;
   width: 16px;
   height: 16px;
-  margin-left: 12px;
   background-color: #3e3f41;
   mask: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.585 11.566L9.96 5.43a.5.5 0 00-.795 0 .64.64 0 000 .868L14.392 12l-5.227 5.702a.64.64 0 000 .868.5.5 0 00.795 0l5.625-6.134A.62.62 0 0015.75 12a.62.62 0 00-.165-.434z' fill='currentColor'/%3E%3C/svg%3E") no-repeat center;
   mask-size: contain;
+  flex-shrink: 0;
 }
 
-.breadcrumb .breadcrumb-item:last-child::after {
-  content: none;
+.breadcrumb .cmp-breadcrumb__item:last-child::after {
+  display: none;
 }
 
-.breadcrumb .breadcrumb-item a {
+.breadcrumb .cmp-breadcrumb__item-link {
   color: #1072b9;
   text-decoration: none;
+  font-family: "Noto Sans", arial, sans-serif;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
-  transition: color 0.3s;
+  transition: color 0.3s ease-in-out;
 }
 
-.breadcrumb .breadcrumb-item a:hover {
+.breadcrumb .cmp-breadcrumb__item-link:hover {
   color: #123f6d;
 }
 
-.breadcrumb .breadcrumb-item span[aria-current="page"] {
+.breadcrumb .cmp-breadcrumb__item--active > span {
   color: #3e3f41;
+  font-family: "Noto Sans", arial, sans-serif;
+  font-size: 16px;
   font-weight: 400;
+  line-height: 1.5;
 }

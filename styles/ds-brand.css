@@ -1,0 +1,149 @@
+/**
+ * Atlas Copco Group Design System - Brand Layer
+ * Source: Production CSS from atlascopcogroup.com
+ * Class prefix: .ds-atlascopcogroup (simulated via EDS block scoping)
+ *
+ * This file contains the brand-specific overrides extracted from the
+ * compiled DS npm package (@ac-brandsframework/atlascopcogroup-lib).
+ * When the real package becomes available, this file can be replaced
+ * by importing the package CSS directly.
+ */
+
+/* === DS BRAND TYPOGRAPHY === */
+h1, h2, h3, h4, h5, h6 {
+  border-bottom: 0;
+  color: #054e5a;
+  font-family: 'Noto Sans', arial, helvetica, sans-serif;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: 'Noto Serif', arial, helvetica, sans-serif;
+  font-size: 36px;
+  line-height: 1.33;
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-family: 'Noto Serif', arial, helvetica, sans-serif;
+  font-size: 28px;
+  line-height: 1.4;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-family: 'Noto Serif', arial, helvetica, sans-serif;
+  font-size: 24px;
+  line-height: 1.33;
+  margin-bottom: 12px;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+h5 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+h6 {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.33;
+  margin-bottom: 4px;
+}
+
+@media (width >= 900px) {
+  h1 {
+    font-size: 56px;
+    letter-spacing: -1px;
+    line-height: 1.14;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 32px;
+    line-height: 1.375;
+  }
+
+  h4 {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+
+/* === DS BRAND COLORS === */
+:root {
+  /* Primary */
+  --ds-color-teal: #054e5a;
+  --ds-color-grey: #a1a9b4;
+  --ds-color-gold: #e1b77e;
+
+  /* Accent */
+  --ds-color-blue: #123f6d;
+  --ds-color-green: #5d7875;
+  --ds-color-light-green: #ced9d7;
+
+  /* Functional */
+  --ds-color-link: #1072b9;
+  --ds-color-link-hover: #123f6d;
+  --ds-color-text-primary: #3e3f41;
+  --ds-color-text-secondary: #6e6e6e;
+  --ds-color-border: #a4aab4;
+  --ds-color-border-light: #d0d4da;
+
+  /* Tints (10% opacity on white) */
+  --ds-color-teal-tint: #e6edee;
+  --ds-color-blue-tint: #e7ebf0;
+  --ds-color-gold-tint: #faf5ed;
+}
+
+/* === DS BRAND LINKS === */
+a:any-link {
+  color: var(--ds-color-link);
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: var(--ds-color-link-hover);
+}
+
+/* === DS BRAND BODY === */
+body {
+  font-family: 'Noto Sans', arial, helvetica, sans-serif;
+  color: var(--ds-color-text-primary);
+}
+
+/* === DS BRAND TABLE (inside accordion panels) === */
+table {
+  color: #3e3f41;
+  font-family: 'Noto Sans', arial, helvetica, sans-serif;
+  font-weight: 400;
+  width: 100%;
+  text-align: left;
+}
+
+table th {
+  border-bottom: 2px solid #054e5a;
+  color: #054e5a;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 0 12px 24px;
+}
+
+table td {
+  border-bottom: 1px solid #82a7ad;
+  font-size: 18px;
+  line-height: 1.8;
+  padding: 12px;
+}

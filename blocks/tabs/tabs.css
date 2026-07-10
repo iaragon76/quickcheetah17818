@@ -1,108 +1,115 @@
-/* Tabs container */
-.tabs-container {
-  background-color: #ffffff;
-}
-
-.tabs-container > div > h2 {
-  color: var(--text-color);
-  margin-bottom: var(--spacing-lg);
-}
-
-.tabs-container > div > .tabs-wrapper {
-  background: #ffffff;
-  padding: var(--spacing-lg);
-  border-radius: 0;
-}
-
-.tabs .tabs-list {
+/* cmp-tabs: AEM Core Component - Tabs */
+.tabs .cmp-tabs__tablist {
   display: flex;
-  gap: 0;
-  border-bottom: 1px solid var(--color-border);
-  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  border-bottom: 1px solid #d0d4da;
+  margin-bottom: 32px;
   overflow-x: auto;
   scrollbar-width: none;
 }
 
-.tabs .tabs-list::-webkit-scrollbar {
+.tabs .cmp-tabs__tablist::-webkit-scrollbar {
   display: none;
 }
 
-.tabs .tabs-tab {
-  padding: 10px 16px;
-  border: none;
-  background: none;
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-s);
+.tabs .cmp-tabs__tab {
+  font-family: "Noto Sans", arial, sans-serif;
+  font-size: 14px;
   font-weight: 500;
-  color: var(--color-text-light);
+  text-transform: uppercase;
+  color: #6e6e6e;
+  padding: 1em 1.5em;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
   cursor: pointer;
   white-space: nowrap;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
   transition: color 0.2s, border-color 0.2s;
 }
 
-.tabs .tabs-tab:hover {
+.tabs .cmp-tabs__tab:hover {
   color: #054e5a;
 }
 
-.tabs .tabs-tab--active {
+.tabs .cmp-tabs__tab--active {
   color: #054e5a;
   border-bottom-color: #054e5a;
   font-weight: 600;
 }
 
-.tabs .tabs-panels {
+.tabs .cmp-tabs__tab:focus-visible {
+  outline: 2px solid #054e5a;
+  outline-offset: 2px;
+}
+
+.tabs .cmp-tabs__panels {
   padding: 0;
 }
 
-.tabs .tabs-panel {
-  animation: tabFadeIn 0.2s ease;
+.tabs .cmp-tabs__tabpanel {
+  animation: cmpTabFadeIn 0.3s ease;
 }
 
-@keyframes tabFadeIn {
+@keyframes cmpTabFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-/* Accordion inside tabs - matching DS .ds-atlascopcogroup .accordion */
-.tabs .tabs-accordion-item {
+/* cmp-accordion: AEM Core Component - Accordion (inside tabs) */
+.tabs .cmp-accordion__item {
   border: none;
   border-bottom: 1px solid #a4aab4;
-  border-radius: 0;
-  margin-bottom: 0;
+  transition: 0.15s ease;
 }
 
-.tabs .tabs-accordion-item:last-child {
-  border-bottom: 1px solid #a4aab4;
-}
-
-.tabs .tabs-accordion-heading {
+.tabs .cmp-accordion__button {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0;
-  padding-right: 88px;
+  padding-right: 60px;
   margin-bottom: 32px;
   cursor: pointer;
-  font-family: 'Noto Sans', arial, sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  color: #3e3f41;
   list-style: none;
   position: relative;
   transition: color 0.3s;
+  color: #3e3f41;
 }
 
-.tabs .tabs-accordion-heading::-webkit-details-marker {
+.tabs .cmp-accordion__button::-webkit-details-marker {
   display: none;
 }
 
-.tabs .tabs-accordion-heading:hover {
+.tabs .cmp-accordion__button:hover {
   color: #1072b9;
 }
 
-.tabs .tabs-accordion-icon {
+.tabs .cmp-accordion__button:hover .cmp-accordion__title {
+  border-bottom: 2px solid currentColor;
+}
+
+.tabs .cmp-accordion__button:hover .cmp-accordion__icon {
+  border-color: currentColor;
+}
+
+.tabs .cmp-accordion__button:focus-visible {
+  outline: 2px solid #054e5a;
+  outline-offset: 2px;
+}
+
+.tabs .cmp-accordion__title {
+  font-family: "Noto Sans", arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.tabs .cmp-accordion__icon {
   width: 40px;
   height: 40px;
   position: absolute;
@@ -117,15 +124,15 @@
   transition: border-color 0.3s;
 }
 
-.tabs .tabs-accordion-icon::before,
-.tabs .tabs-accordion-icon::after {
+.tabs .cmp-accordion__icon::before,
+.tabs .cmp-accordion__icon::after {
   content: '';
   position: absolute;
-  background-color: #054e5a;
-  transition: transform 0.3s;
+  background-color: #3e3f41;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
-.tabs .tabs-accordion-icon::before {
+.tabs .cmp-accordion__icon::before {
   top: 50%;
   left: 25%;
   right: 25%;
@@ -133,7 +140,7 @@
   transform: translateY(-50%);
 }
 
-.tabs .tabs-accordion-icon::after {
+.tabs .cmp-accordion__icon::after {
   left: 50%;
   top: 25%;
   bottom: 25%;
@@ -141,83 +148,78 @@
   transform: translateX(-50%);
 }
 
-.tabs details[open] .tabs-accordion-icon::after {
+.tabs details[open] .cmp-accordion__icon::after {
   transform: translateX(-50%) rotate(90deg);
   opacity: 0;
 }
 
-.tabs details[open] .tabs-accordion-heading {
+.tabs details[open] .cmp-accordion__button {
   margin-bottom: 0;
 }
 
-.tabs .tabs-accordion-body {
+.tabs .cmp-accordion__panel {
   padding: 24px 0 32px;
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-lg);
+  gap: 24px;
+  animation: cmpTabFadeIn 0.5s ease;
 }
 
 @media (width >= 900px) {
-  .tabs .tabs-accordion-body {
+  .tabs .cmp-accordion__panel {
     grid-template-columns: 3fr 2fr;
   }
 
-  .tabs .tabs-accordion-body .tabs-doc-group:first-child {
+  .tabs .cmp-accordion__panel .cmp-download:first-child {
     grid-row: 1 / -1;
   }
 }
 
-/* Document list inside accordion */
-.tabs .tabs-doc-category {
-  font-size: 11px;
-  font-weight: 700;
+/* cmp-download: AEM Core Component - Download */
+.tabs .cmp-download__title {
+  font-family: "Noto Sans", arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--color-text-light);
-  margin: 12px 0 8px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid var(--color-border);
+  color: #6e6e6e;
+  margin: 0 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #d0d4da;
 }
 
-.tabs .tabs-doc-category:first-child {
-  margin-top: 0;
-}
-
-.tabs .tabs-doc-links {
+.tabs .cmp-download__list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.tabs .tabs-doc-links li {
+.tabs .cmp-download__list li {
   padding: 6px 0;
 }
 
-.tabs .tabs-doc-links li:last-child {
-  border-bottom: none;
-}
-
-.tabs .tabs-doc-link {
+.tabs .cmp-download__title-link {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  color: #123f6d;
-  font-weight: 500;
+  gap: 8px;
+  color: #1072b9;
+  font-family: "Noto Sans", arial, sans-serif;
   font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
   transition: color 0.2s;
 }
 
-.tabs .tabs-doc-link:hover {
+.tabs .cmp-download__title-link:hover {
+  color: #054e5a;
   text-decoration: underline;
 }
 
-.tabs .tabs-doc-link::before {
+.tabs .cmp-download__title-link::before {
   content: '';
   display: inline-block;
-  width: 14px;
-  height: 14px;
-  background: #123f6d;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
   mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'%3E%3Cpath d='M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4'/%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3Cpath d='M12 15V3'/%3E%3C/svg%3E") no-repeat center;
   mask-size: contain;
   flex-shrink: 0;

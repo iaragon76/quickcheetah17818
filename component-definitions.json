@@ -3,28 +3,36 @@
     "id": "tabs",
     "name": "Tabs",
     "model": "tabs",
-    "icon": "tabs",
+    "group": "Content"
+  },
+  {
+    "id": "accordion",
+    "name": "Accordion",
+    "model": "accordion",
     "group": "Content"
   },
   {
     "id": "breadcrumb",
     "name": "Breadcrumb",
     "model": "breadcrumb",
-    "icon": "breadcrumb",
     "group": "Navigation"
   },
   {
     "id": "columns",
     "name": "Columns",
     "model": "columns",
-    "icon": "columns",
     "group": "Layout"
   },
   {
-    "id": "hero",
-    "name": "Hero",
-    "model": "hero",
-    "icon": "hero",
+    "id": "teaser",
+    "name": "Teaser",
+    "model": "teaser",
+    "group": "Content"
+  },
+  {
+    "id": "download",
+    "name": "Download",
+    "model": "download",
     "group": "Content"
   }
 ]

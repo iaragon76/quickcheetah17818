@@ -1,21 +1,60 @@
 [
   {
     "id": "tabs",
+    "name": "Tabs",
+    "group": "Content",
     "fields": [
-      { "component": "text", "name": "tabLabel", "label": "Tab Label" },
-      { "component": "richtext", "name": "tabContent", "label": "Tab Content" }
+      { "component": "text", "name": "tabLabel", "label": "Tab Label", "description": "Year or category name shown as tab button" },
+      { "component": "richtext", "name": "tabContent", "label": "Tab Content", "description": "Use H3 for section headings, H4 for categories, paragraphs with links for downloads" }
+    ]
+  },
+  {
+    "id": "accordion",
+    "name": "Accordion",
+    "group": "Content",
+    "fields": [
+      { "component": "text", "name": "heading", "label": "Panel Heading" },
+      { "component": "richtext", "name": "content", "label": "Panel Content" }
     ]
   },
   {
     "id": "breadcrumb",
+    "name": "Breadcrumb",
+    "group": "Navigation",
     "fields": [
-      { "component": "richtext", "name": "links", "label": "Breadcrumb Links" }
+      { "component": "richtext", "name": "links", "label": "Breadcrumb Links", "description": "Add links in order of hierarchy" }
     ]
   },
   {
     "id": "columns",
+    "name": "Columns",
+    "group": "Layout",
     "fields": [
       { "component": "richtext", "name": "column", "label": "Column Content" }
+    ]
+  },
+  {
+    "id": "teaser",
+    "name": "Teaser",
+    "group": "Content",
+    "fields": [
+      { "component": "reference", "name": "image", "label": "Image", "description": "Teaser hero image" },
+      { "component": "text", "name": "pretitle", "label": "Pretitle", "description": "Small text above title (e.g. category)" },
+      { "component": "text", "name": "title", "label": "Title" },
+      { "component": "richtext", "name": "description", "label": "Description" },
+      { "component": "text", "name": "actionText", "label": "CTA Button Text" },
+      { "component": "text", "name": "actionLink", "label": "CTA Button Link" }
+    ]
+  },
+  {
+    "id": "download",
+    "name": "Download",
+    "group": "Content",
+    "fields": [
+      { "component": "text", "name": "title", "label": "Document Title" },
+      { "component": "text", "name": "url", "label": "Download URL" },
+      { "component": "text", "name": "format", "label": "File Format (PDF, XLSX, etc.)" },
+      { "component": "text", "name": "size", "label": "File Size" }
     ]
   }
 ]

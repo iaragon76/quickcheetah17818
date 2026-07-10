@@ -2,15 +2,15 @@
 
 function buildAccordionPanel(heading, contentNodes) {
   const details = document.createElement('details');
-  details.className = 'tabs-accordion-item';
+  details.className = 'cmp-accordion__item';
   details.open = true;
 
   const summary = document.createElement('summary');
-  summary.className = 'tabs-accordion-heading';
-  summary.innerHTML = `<span>${heading}</span><span class="tabs-accordion-icon" aria-hidden="true"></span>`;
+  summary.className = 'cmp-accordion__button';
+  summary.innerHTML = `<span class="cmp-accordion__title">${heading}</span><span class="cmp-accordion__icon" aria-hidden="true"></span>`;
 
   const body = document.createElement('div');
-  body.className = 'tabs-accordion-body';
+  body.className = 'cmp-accordion__panel';
 
   let currentGroup = null;
   let currentList = null;
@@ -20,25 +20,24 @@ function buildAccordionPanel(heading, contentNodes) {
     const tag = node.tagName;
 
     if (tag === 'H4' || (tag === 'P' && node.querySelector('strong'))) {
-      // New category group
       currentGroup = document.createElement('div');
-      currentGroup.className = 'tabs-doc-group';
+      currentGroup.className = 'cmp-download';
       body.append(currentGroup);
 
       const catHeading = document.createElement('h4');
-      catHeading.className = 'tabs-doc-category';
+      catHeading.className = 'cmp-download__title';
       catHeading.textContent = node.textContent.trim();
       currentGroup.append(catHeading);
 
       currentList = document.createElement('ul');
-      currentList.className = 'tabs-doc-links';
+      currentList.className = 'cmp-download__list';
       currentGroup.append(currentList);
     } else if (tag === 'P' || tag === 'DIV') {
       const link = node.querySelector('a');
       if (link && currentList) {
         const li = document.createElement('li');
         const a = link.cloneNode(true);
-        a.className = 'tabs-doc-link';
+        a.className = 'cmp-download__title-link';
         const href = a.getAttribute('href') || '';
         const ext = href.match(/\.(pdf|xlsx|xhtml|zip|pptx)/i);
         if (ext) a.dataset.filetype = ext[1].toUpperCase();
@@ -47,17 +46,17 @@ function buildAccordionPanel(heading, contentNodes) {
       } else if (link) {
         if (!currentGroup) {
           currentGroup = document.createElement('div');
-          currentGroup.className = 'tabs-doc-group';
+          currentGroup.className = 'cmp-download';
           body.append(currentGroup);
         }
         if (!currentList) {
           currentList = document.createElement('ul');
-          currentList.className = 'tabs-doc-links';
+          currentList.className = 'cmp-download__list';
           currentGroup.append(currentList);
         }
         const li = document.createElement('li');
         const a = link.cloneNode(true);
-        a.className = 'tabs-doc-link';
+        a.className = 'cmp-download__title-link';
         li.append(a);
         currentList.append(li);
       }
@@ -70,48 +69,41 @@ function buildAccordionPanel(heading, contentNodes) {
 
 export default async function decorate(block) {
   const tabList = document.createElement('div');
-  tabList.className = 'tabs-list';
+  tabList.className = 'cmp-tabs__tablist';
   tabList.setAttribute('role', 'tablist');
 
   const tabPanels = document.createElement('div');
-  tabPanels.className = 'tabs-panels';
+  tabPanels.className = 'cmp-tabs__panels';
 
   const rows = [...block.children];
   rows.forEach((row, i) => {
     const label = row.children[0]?.textContent.trim();
     const contentCell = row.children[1];
 
-    // Create tab button
     const tab = document.createElement('button');
-    tab.className = 'tabs-tab';
+    tab.className = 'cmp-tabs__tab';
     tab.setAttribute('role', 'tab');
     tab.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
     tab.setAttribute('aria-controls', `tabpanel-${i}`);
     tab.setAttribute('id', `tab-${i}`);
     tab.textContent = label;
-    if (i === 0) tab.classList.add('tabs-tab--active');
+    if (i === 0) tab.classList.add('cmp-tabs__tab--active');
     tabList.append(tab);
 
-    // Create tab panel
     const panel = document.createElement('div');
-    panel.className = 'tabs-panel';
+    panel.className = 'cmp-tabs__tabpanel';
     panel.setAttribute('role', 'tabpanel');
     panel.setAttribute('id', `tabpanel-${i}`);
     panel.setAttribute('aria-labelledby', `tab-${i}`);
     if (i !== 0) panel.hidden = true;
 
-    // Parse content into accordion sections
-    // H3 elements start new accordion panels
     if (contentCell) {
       const children = [...contentCell.querySelectorAll(':scope > *')];
-      // If content wrapped in <p> by wrapTextNodes, unwrap first
       if (children.length === 1 && children[0].tagName === 'P') {
-        // Content was wrapped — try to use innerHTML
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = contentCell.innerHTML;
         const unwrapped = [...tempDiv.children];
         if (unwrapped.length <= 1) {
-          // Still wrapped, parse by splitting on H3-like content
           panel.append(...contentCell.childNodes);
         } else {
           processContent(unwrapped, panel);
@@ -130,7 +122,6 @@ export default async function decorate(block) {
 
     elements.forEach((el) => {
       if (el.tagName === 'H3') {
-        // Flush previous accordion section
         if (currentHeading) {
           panel.append(buildAccordionPanel(currentHeading, currentContent));
         }
@@ -146,7 +137,6 @@ export default async function decorate(block) {
       }
     });
 
-    // Flush last section
     if (currentHeading) {
       panel.append(buildAccordionPanel(currentHeading, currentContent));
     }
@@ -154,24 +144,24 @@ export default async function decorate(block) {
 
   // Tab switching
   tabList.addEventListener('click', (e) => {
-    const clickedTab = e.target.closest('.tabs-tab');
+    const clickedTab = e.target.closest('.cmp-tabs__tab');
     if (!clickedTab) return;
 
-    tabList.querySelectorAll('.tabs-tab').forEach((t) => {
-      t.classList.remove('tabs-tab--active');
+    tabList.querySelectorAll('.cmp-tabs__tab').forEach((t) => {
+      t.classList.remove('cmp-tabs__tab--active');
       t.setAttribute('aria-selected', 'false');
     });
-    clickedTab.classList.add('tabs-tab--active');
+    clickedTab.classList.add('cmp-tabs__tab--active');
     clickedTab.setAttribute('aria-selected', 'true');
 
-    tabPanels.querySelectorAll('.tabs-panel').forEach((p) => { p.hidden = true; });
+    tabPanels.querySelectorAll('.cmp-tabs__tabpanel').forEach((p) => { p.hidden = true; });
     const targetPanel = tabPanels.querySelector(`#${clickedTab.getAttribute('aria-controls')}`);
     if (targetPanel) targetPanel.hidden = false;
   });
 
   // Keyboard navigation
   tabList.addEventListener('keydown', (e) => {
-    const tabs = [...tabList.querySelectorAll('.tabs-tab')];
+    const tabs = [...tabList.querySelectorAll('.cmp-tabs__tab')];
     const current = tabs.indexOf(e.target);
     let next;
     if (e.key === 'ArrowRight') next = (current + 1) % tabs.length;
