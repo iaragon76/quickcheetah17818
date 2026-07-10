@@ -9,35 +9,43 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: var(--spacing-xs);
+  gap: 12px;
 }
 
 .breadcrumb .breadcrumb-item {
   display: flex;
   align-items: center;
-  font-size: var(--body-font-size-s);
+  font-size: 16px;
 }
 
 .breadcrumb .breadcrumb-item::after {
-  content: '›';
-  margin-left: var(--spacing-sm);
-  color: var(--color-text-light);
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-left: 12px;
+  background-color: #3e3f41;
+  mask: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M15.585 11.566L9.96 5.43a.5.5 0 00-.795 0 .64.64 0 000 .868L14.392 12l-5.227 5.702a.64.64 0 000 .868.5.5 0 00.795 0l5.625-6.134A.62.62 0 0015.75 12a.62.62 0 00-.165-.434z' fill='currentColor'/%3E%3C/svg%3E") no-repeat center;
+  mask-size: contain;
 }
 
 .breadcrumb .breadcrumb-item:last-child::after {
-  content: '';
+  content: none;
 }
 
 .breadcrumb .breadcrumb-item a {
-  color: var(--color-primary);
+  color: #1072b9;
   text-decoration: none;
+  font-weight: 400;
+  line-height: 1.5;
+  transition: color 0.3s;
 }
 
 .breadcrumb .breadcrumb-item a:hover {
-  text-decoration: underline;
+  color: #123f6d;
 }
 
 .breadcrumb .breadcrumb-item span[aria-current="page"] {
-  color: var(--color-text-light);
-  font-weight: 500;
+  color: #3e3f41;
+  font-weight: 400;
 }

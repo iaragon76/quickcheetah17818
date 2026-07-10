@@ -65,28 +65,33 @@
   to { opacity: 1; }
 }
 
-/* Accordion inside tabs */
+/* Accordion inside tabs - matching DS .ds-atlascopcogroup .accordion */
 .tabs .tabs-accordion-item {
-  border: 1px solid var(--color-border);
+  border: none;
+  border-bottom: 1px solid #a4aab4;
   border-radius: 0;
   margin-bottom: 0;
-  border-bottom: none;
 }
 
 .tabs .tabs-accordion-item:last-child {
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid #a4aab4;
 }
 
 .tabs .tabs-accordion-heading {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px;
+  padding: 0;
+  padding-right: 88px;
+  margin-bottom: 32px;
   cursor: pointer;
+  font-family: 'Noto Sans', arial, sans-serif;
   font-weight: 600;
-  font-size: 15px;
-  color: var(--text-color);
+  font-size: 16px;
+  color: #3e3f41;
   list-style: none;
+  position: relative;
+  transition: color 0.3s;
 }
 
 .tabs .tabs-accordion-heading::-webkit-details-marker {
@@ -94,14 +99,22 @@
 }
 
 .tabs .tabs-accordion-heading:hover {
-  background-color: #f8f8f8;
+  color: #1072b9;
 }
 
 .tabs .tabs-accordion-icon {
-  width: 18px;
-  height: 18px;
-  position: relative;
-  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1.5px solid #a4aab4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s;
 }
 
 .tabs .tabs-accordion-icon::before,
@@ -114,16 +127,16 @@
 
 .tabs .tabs-accordion-icon::before {
   top: 50%;
-  left: 2px;
-  right: 2px;
+  left: 25%;
+  right: 25%;
   height: 2px;
   transform: translateY(-50%);
 }
 
 .tabs .tabs-accordion-icon::after {
   left: 50%;
-  top: 2px;
-  bottom: 2px;
+  top: 25%;
+  bottom: 25%;
   width: 2px;
   transform: translateX(-50%);
 }
@@ -133,8 +146,12 @@
   opacity: 0;
 }
 
+.tabs details[open] .tabs-accordion-heading {
+  margin-bottom: 0;
+}
+
 .tabs .tabs-accordion-body {
-  padding: 0 20px 20px;
+  padding: 24px 0 32px;
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-lg);
