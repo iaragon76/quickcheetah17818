@@ -7,12 +7,17 @@ function buildAccordionPanel(heading, subtitle, contentNodes) {
 
   const summary = document.createElement('summary');
   summary.className = 'cmp-accordion__button';
-  let titleHTML = `<div class="cmp-accordion__title-group"><span class="cmp-accordion__title">${heading}</span>`;
-  if (subtitle) titleHTML += `<span class="cmp-accordion__subtitle">${subtitle}</span>`;
-  titleHTML += `</div><span class="cmp-accordion__icon" aria-hidden="true"></span>`;
-  summary.innerHTML = titleHTML;
+  summary.innerHTML = `<span class="cmp-accordion__title">${heading}</span><span class="cmp-accordion__icon" aria-hidden="true"></span>`;
 
   const body = document.createElement('div');
+  body.className = 'cmp-accordion__panel';
+
+  if (subtitle) {
+    const sub = document.createElement('p');
+    sub.className = 'cmp-accordion__subtitle';
+    sub.textContent = subtitle;
+    body.append(sub);
+  }
   body.className = 'cmp-accordion__panel';
 
   let currentGroup = null;

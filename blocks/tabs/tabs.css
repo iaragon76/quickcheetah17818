@@ -168,15 +168,17 @@
   width: 16px;
   height: 2px;
   transform: translate(-50%, -50%);
+  transition: transform 0.3s, background-color 0.3s;
 }
 
 .tabs .cmp-accordion__icon::after {
   width: 2px;
   height: 16px;
   transform: translate(-50%, -50%);
+  transition: transform 0.3s, background-color 0.3s;
 }
 
-/* When open: rotate both lines 45deg to form X */
+/* When open: rotate to X */
 .tabs details[open] .cmp-accordion__icon {
   border-color: #3e3f41;
 }
@@ -188,7 +190,7 @@
 
 .tabs details[open] .cmp-accordion__icon::after {
   background-color: #3e3f41;
-  transform: translate(-50%, -50%) rotate(45deg);
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .tabs details[open] .cmp-accordion__button { margin-bottom: 0; }
@@ -198,6 +200,16 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
+}
+
+.tabs .cmp-accordion__subtitle {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #7d8083;
+  line-height: 1.5;
+  margin: 0 0 16px;
+  grid-column: 1 / -1;
 }
 
 @media (width >= 900px) {
