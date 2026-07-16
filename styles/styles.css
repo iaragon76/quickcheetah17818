@@ -11,44 +11,44 @@
  */
 
 :root {
-  /* colors - Atlas Copco Group Design System (official) */
+  /* colors - from atlas-copco-group-ts/_settings.colors.scss */
   --background-color: #ffffff;
-  --light-color: #eef1f3;
-  --dark-color: #1a1a1a;
-  --text-color: #1a1a1a;
-  --link-color: #123f6d;
-  --link-hover-color: #0d2d4f;
-  --color-primary: #123f6d;
-  --color-primary-dark: #0d2d4f;
-  --color-secondary: #e7ebf0;
-  --color-border: #d4d4d4;
-  --color-text-light: #6e6e6e;
-  --color-accent: #123f6d;
-  --color-brand-teal: #054e5a;
-  --color-brand-teal-light: #e6edee;
-  --color-brand-grey: #a1a9b4;
-  --color-brand-gold: #e1b77e;
-  --color-brand-green: #5d7875;
-  --color-brand-light-green: #ced9d7;
+  --light-color: #F7F8F9;
+  --dark-color: #0d0d0d;
+  --text-color: #0d0d0d;
+  --link-color: #0D616F;
+  --link-hover-color: #005470;
+  --color-primary: #0D616F;
+  --color-primary-dark: #005470;
+  --color-secondary: #E6EDEF;
+  --color-border: #E6E7E8;
+  --color-text-light: #808285;
+  --color-accent: #0D616F;
+  --color-brand-teal: #054E5A;
+  --color-brand-teal-light: #E6EDEF;
+  --color-brand-grey: #BCBEC0;
+  --color-brand-gold: #E1B77E;
+  --color-brand-green: #008c95;
+  --color-brand-light-green: #CED9D7;
   --color-card-bg: #ffffff;
   --color-card-shadow: rgba(0 0 0 / 8%);
 
-  /* fonts - Atlas Copco uses Noto Sans / system sans */
-  --body-font-family: 'Noto Sans', 'Segoe UI', arial, helvetica, sans-serif;
-  --heading-font-family: 'Noto Sans', 'Segoe UI', arial, helvetica, sans-serif;
+  /* fonts - from atlas-copco-group-ts/_settings.fonts.scss */
+  --body-font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  --heading-font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
 
   /* body sizes */
   --body-font-size-m: 16px;
   --body-font-size-s: 14px;
   --body-font-size-xs: 12px;
 
-  /* heading sizes - from live production CSS */
-  --heading-font-size-xxl: 56px;
-  --heading-font-size-xl: 28px;
-  --heading-font-size-l: 22px;
-  --heading-font-size-m: 18px;
-  --heading-font-size-s: 16px;
-  --heading-font-size-xs: 14px;
+  /* heading sizes - from _settings.fonts.scss */
+  --heading-font-size-xxl: 42px;
+  --heading-font-size-xl: 36px;
+  --heading-font-size-l: 30px;
+  --heading-font-size-m: 24px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 16px;
 
   /* spacing */
   --spacing-xs: 4px;
@@ -122,40 +122,40 @@ h5,
 h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
-  font-family: 'Noto Sans', arial, helvetica, sans-serif;
-  font-weight: 400;
+  font-family: var(--heading-font-family);
+  font-weight: 900;
   line-height: 1.3;
   scroll-margin: 40px;
-  color: #054e5a;
-  border-bottom: 0;
+  color: #0D616F;
 }
 
 h1 {
-  font-family: 'Noto Serif', arial, helvetica, sans-serif;
-  font-size: 56px;
-  line-height: 1.14;
+  font-size: 42px;
+  line-height: 46px;
+  font-weight: 500;
   letter-spacing: -1px;
   margin-bottom: 24px;
 }
 
 h2 {
-  font-family: 'Noto Serif', arial, helvetica, sans-serif;
-  font-size: 40px;
-  line-height: 1.4;
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 500;
+  letter-spacing: -1px;
   margin-bottom: 16px;
 }
 
 h3 {
-  font-family: 'Noto Serif', arial, helvetica, sans-serif;
-  font-size: 32px;
-  line-height: 1.375;
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 500;
+  letter-spacing: -1px;
   margin-bottom: 12px;
 }
 
 h4 {
   font-size: 24px;
-  font-weight: 600;
-  line-height: 1.33;
+  line-height: 30px;
   margin-bottom: 8px;
 }
 

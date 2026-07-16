@@ -90,11 +90,9 @@ main > .section.highlight {
 /* Page title styling */
 main h1 {
   font-family: var(--heading-font-family);
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -1px;
-  line-height: 1.14;
   margin-top: 0;
-  margin-bottom: 24px;
 }
 
 main h1 + p {
@@ -108,7 +106,7 @@ main h1 + p {
 
 /* Section label (e.g. "FINANCIALS") */
 .section-label {
-  color: var(--color-brand-teal, #054e5a);
+  color: var(--color-primary);
   font-size: var(--body-font-size-xs);
   font-weight: 700;
   text-transform: uppercase;

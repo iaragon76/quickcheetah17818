@@ -1,149 +1,96 @@
 /**
- * Atlas Copco Group Design System - Brand Layer
- * Source: Production CSS from atlascopcogroup.com
- * Class prefix: .ds-atlascopcogroup (simulated via EDS block scoping)
+ * Atlas Copco GROUP Design System - Brand Layer
+ * Source: libs/atlas-copco-group-ts (atlascopco-designsystem-ts repo)
  *
- * This file contains the brand-specific overrides extracted from the
- * compiled DS npm package (@ac-brandsframework/atlascopcogroup-lib).
- * When the real package becomes available, this file can be replaced
- * by importing the package CSS directly.
+ * Compiled from actual SCSS source files:
+ *   01-settings/_settings.colors.scss
+ *   01-settings/_settings.fonts.scss
+ *   04-elements/_elements.headings.scss
+ *   04-elements/_elements.links.scss
+ *   04-elements/_elements.page.scss
+ *   lib/aemTab/aemTab.scss
+ *   lib/accordion/accordion.scss
+ *   lib/breadcrumb-aem/breadcrumb.scss
+ *   lib/footerCorp/footerCorp.scss
  */
 
-/* === DS BRAND TYPOGRAPHY === */
+/* === DS TOKENS (from _settings.colors.scss) === */
+:root {
+  --ds-brand-primary: #054E5A;
+  --ds-brand-darkblue: #0D616F;
+  --ds-brand-gold: #E1B77E;
+  --ds-brand-darkgrey: #414042;
+  --ds-brand-black: #0d0d0d;
+  --ds-brand-lightblue: #CED9D7;
+  --ds-brand-petrol: #008c95;
+  --ds-brand-blue: #005470;
+  --ds-gray1: #F7F8F9;
+  --ds-gray2: #E6EDEF;
+  --ds-gray3: #E6E7E8;
+  --ds-gray4: #BCBEC0;
+  --ds-gray5: #808285;
+  --ds-gray8: #dae6ea;
+  --ds-text: #0d0d0d;
+  --ds-headlines: #0D616F;
+}
+
+/* === DS TYPOGRAPHY (from _settings.fonts.scss + _elements.headings.scss) === */
+body {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--ds-text);
+}
+
 h1, h2, h3, h4, h5, h6 {
-  border-bottom: 0;
-  color: #054e5a;
-  font-family: 'Noto Sans', arial, helvetica, sans-serif;
-  font-weight: 400;
+  font-weight: 900;
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  color: var(--ds-headlines);
 }
 
 h1 {
-  font-family: 'Noto Serif', arial, helvetica, sans-serif;
-  font-size: 36px;
-  line-height: 1.33;
-  margin-bottom: 24px;
+  font-size: 42px;
+  line-height: 46px;
+  font-weight: 500;
+  letter-spacing: -1px;
 }
 
 h2 {
-  font-family: 'Noto Serif', arial, helvetica, sans-serif;
-  font-size: 28px;
-  line-height: 1.4;
-  margin-bottom: 16px;
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 500;
+  letter-spacing: -1px;
 }
 
 h3 {
-  font-family: 'Noto Serif', arial, helvetica, sans-serif;
-  font-size: 24px;
-  line-height: 1.33;
-  margin-bottom: 12px;
+  font-size: 30px;
+  line-height: 34px;
+  font-weight: 500;
+  letter-spacing: -1px;
 }
 
 h4 {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 8px;
+  font-size: 24px;
+  line-height: 30px;
 }
 
 h5 {
   font-size: 20px;
-  font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 4px;
+  line-height: 24px;
 }
 
 h6 {
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.33;
-  margin-bottom: 4px;
+  font-size: 16px;
+  line-height: 20px;
 }
 
-@media (width >= 900px) {
-  h1 {
-    font-size: 56px;
-    letter-spacing: -1px;
-    line-height: 1.14;
-  }
-
-  h2 {
-    font-size: 40px;
-  }
-
-  h3 {
-    font-size: 32px;
-    line-height: 1.375;
-  }
-
-  h4 {
-    font-size: 24px;
-    line-height: 1.33;
-  }
-}
-
-/* === DS BRAND COLORS === */
-:root {
-  /* Primary */
-  --ds-color-teal: #054e5a;
-  --ds-color-grey: #a1a9b4;
-  --ds-color-gold: #e1b77e;
-
-  /* Accent */
-  --ds-color-blue: #123f6d;
-  --ds-color-green: #5d7875;
-  --ds-color-light-green: #ced9d7;
-
-  /* Functional */
-  --ds-color-link: #1072b9;
-  --ds-color-link-hover: #123f6d;
-  --ds-color-text-primary: #3e3f41;
-  --ds-color-text-secondary: #6e6e6e;
-  --ds-color-border: #a4aab4;
-  --ds-color-border-light: #d0d4da;
-
-  /* Tints (10% opacity on white) */
-  --ds-color-teal-tint: #e6edee;
-  --ds-color-blue-tint: #e7ebf0;
-  --ds-color-gold-tint: #faf5ed;
-}
-
-/* === DS BRAND LINKS === */
-a:any-link {
-  color: var(--ds-color-link);
-  transition: color 0.3s ease-in-out;
+/* === DS LINKS (from _elements.links.scss + _elements.page.scss) === */
+a {
+  text-decoration: none;
+  color: var(--ds-headlines);
 }
 
 a:hover {
-  color: var(--ds-color-link-hover);
-}
-
-/* === DS BRAND BODY === */
-body {
-  font-family: 'Noto Sans', arial, helvetica, sans-serif;
-  color: var(--ds-color-text-primary);
-}
-
-/* === DS BRAND TABLE (inside accordion panels) === */
-table {
-  color: #3e3f41;
-  font-family: 'Noto Sans', arial, helvetica, sans-serif;
-  font-weight: 400;
-  width: 100%;
-  text-align: left;
-}
-
-table th {
-  border-bottom: 2px solid #054e5a;
-  color: #054e5a;
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.5;
-  padding: 0 12px 24px;
-}
-
-table td {
-  border-bottom: 1px solid #82a7ad;
-  font-size: 18px;
-  line-height: 1.8;
-  padding: 12px;
+  color: var(--ds-brand-blue);
+  text-decoration: underline;
 }
