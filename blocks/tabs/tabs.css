@@ -178,7 +178,7 @@
   transform: translateX(-50%);
 }
 
-/* When open: show X (rotated +), hide the vertical bar */
+/* When open: show X (rotated +) */
 .tabs details[open] .cmp-accordion__icon {
   border-color: #3e3f41;
 }
@@ -186,11 +186,15 @@
 .tabs details[open] .cmp-accordion__icon::before {
   transform: translateY(-50%) rotate(45deg);
   background-color: #3e3f41;
+  left: 30%;
+  right: 30%;
 }
 
 .tabs details[open] .cmp-accordion__icon::after {
   transform: translateX(-50%) rotate(45deg);
   background-color: #3e3f41;
+  top: 30%;
+  bottom: 30%;
 }
 
 .tabs details[open] .cmp-accordion__button { margin-bottom: 0; }
@@ -205,10 +209,21 @@
 @media (width >= 900px) {
   .tabs .cmp-accordion__panel {
     grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
   }
 
   .tabs .cmp-accordion__panel .cmp-download:first-child {
     grid-row: 1 / -1;
+  }
+
+  .tabs .cmp-accordion__panel .cmp-download:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .tabs .cmp-accordion__panel .cmp-download:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
   }
 }
 
