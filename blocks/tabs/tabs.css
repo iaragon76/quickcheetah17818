@@ -156,41 +156,30 @@
 
 .tabs .cmp-accordion__icon::before,
 .tabs .cmp-accordion__icon::after {
-  content: '';
-  position: absolute;
-  background-color: #7d8083;
-  transition: transform 0.3s;
-  top: 50%;
-  left: 50%;
+  content: none;
 }
 
 .tabs .cmp-accordion__icon::before {
-  width: 16px;
-  height: 2px;
-  transform: translate(-50%, -50%);
-  transition: transform 0.3s, background-color 0.3s;
+  content: '';
+  display: block;
+  width: 24px;
+  height: 24px;
+  background-color: currentColor;
+  mask-image: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.3137 12.3137H0.686292" stroke="%23ffffff" stroke-width="2" stroke-linejoin="round"/><path d="M12 1V23.6274" stroke="%23ffffff" stroke-width="2" stroke-linejoin="round"/></svg>');
+  -webkit-mask-image: url('data:image/svg+xml,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M23.3137 12.3137H0.686292" stroke="%23ffffff" stroke-width="2" stroke-linejoin="round"/><path d="M12 1V23.6274" stroke="%23ffffff" stroke-width="2" stroke-linejoin="round"/></svg>');
+  mask-repeat: no-repeat;
+  mask-position: center center;
+  transition: transform 0.3s;
 }
 
-.tabs .cmp-accordion__icon::after {
-  width: 16px;
-  height: 2px;
-  transform: translate(-50%, -50%) rotate(90deg);
-  transition: transform 0.3s, background-color 0.3s;
-}
-
-/* When open: rotate + to X */
+/* When open: rotate + 45deg to form X */
 .tabs details[open] .cmp-accordion__icon {
   border-color: #3e3f41;
 }
 
 .tabs details[open] .cmp-accordion__icon::before {
-  background-color: #3e3f41;
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.tabs details[open] .cmp-accordion__icon::after {
-  background-color: #3e3f41;
-  transform: translate(-50%, -50%) rotate(-45deg);
+  color: #3e3f41;
+  transform: rotate(45deg);
 }
 
 .tabs details[open] .cmp-accordion__button { margin-bottom: 0; }
