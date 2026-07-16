@@ -122,14 +122,37 @@
   outline-offset: 2px;
 }
 
+.tabs .cmp-accordion__title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .tabs .cmp-accordion__title {
-  display: inline-block;
-  vertical-align: top;
+  display: block;
   font-family: 'Noto Serif', Arial, Helvetica, sans-serif;
-  font-size: 32px;
+  font-size: 24px;
   font-weight: 400;
-  line-height: 1.375;
-  letter-spacing: -0.5px;
+  line-height: 1.33;
+  letter-spacing: normal;
+  text-transform: none;
+  text-align: start;
+}
+
+@media (width >= 900px) {
+  .tabs .cmp-accordion__title {
+    font-size: 32px;
+    line-height: 1.375;
+  }
+}
+
+.tabs .cmp-accordion__subtitle {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #7d8083;
+  line-height: 1.5;
+}
   color: inherit;
 }
 

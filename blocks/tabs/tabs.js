@@ -1,13 +1,16 @@
 /* eslint-disable no-use-before-define */
 
-function buildAccordionPanel(heading, contentNodes) {
+function buildAccordionPanel(heading, subtitle, contentNodes) {
   const details = document.createElement('details');
   details.className = 'cmp-accordion__item';
   details.open = true;
 
   const summary = document.createElement('summary');
   summary.className = 'cmp-accordion__button';
-  summary.innerHTML = `<span class="cmp-accordion__title">${heading}</span><span class="cmp-accordion__icon" aria-hidden="true"></span>`;
+  let titleHTML = `<div class="cmp-accordion__title-group"><span class="cmp-accordion__title">${heading}</span>`;
+  if (subtitle) titleHTML += `<span class="cmp-accordion__subtitle">${subtitle}</span>`;
+  titleHTML += `</div><span class="cmp-accordion__icon" aria-hidden="true"></span>`;
+  summary.innerHTML = titleHTML;
 
   const body = document.createElement('div');
   body.className = 'cmp-accordion__panel';
@@ -118,15 +121,19 @@ export default async function decorate(block) {
 
   function processContent(elements, panel) {
     let currentHeading = null;
+    let currentSubtitle = null;
     let currentContent = [];
 
     elements.forEach((el) => {
       if (el.tagName === 'H3') {
         if (currentHeading) {
-          panel.append(buildAccordionPanel(currentHeading, currentContent));
+          panel.append(buildAccordionPanel(currentHeading, currentSubtitle, currentContent));
         }
         currentHeading = el.textContent.trim();
+        currentSubtitle = null;
         currentContent = [];
+      } else if (el.classList && el.classList.contains('accordion-subtitle')) {
+        currentSubtitle = el.textContent.trim();
       } else {
         if (!currentHeading) {
           currentHeading = el.textContent.trim();
@@ -138,7 +145,7 @@ export default async function decorate(block) {
     });
 
     if (currentHeading) {
-      panel.append(buildAccordionPanel(currentHeading, currentContent));
+      panel.append(buildAccordionPanel(currentHeading, currentSubtitle, currentContent));
     }
   }
 

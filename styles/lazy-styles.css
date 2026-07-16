@@ -66,6 +66,30 @@ main > .section.highlight {
   margin-bottom: var(--spacing-md);
 }
 
+/* Overview of documents: teal container with white card */
+.overview-section {
+  background-color: #054E5A !important;
+  padding: 48px 0 !important;
+  border-top: none !important;
+}
+
+.overview-section > div {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+}
+
+.overview-section h2 {
+  color: #ffffff !important;
+  margin-bottom: 32px;
+}
+
+.overview-section .tabs-wrapper {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+}
+
 /* Sticky Feedback button (right side, gold) */
 .feedback-btn {
   position: fixed;
