@@ -18,7 +18,9 @@ function buildAccordionPanel(heading, subtitle, contentNodes) {
     sub.textContent = subtitle;
     body.append(sub);
   }
-  body.className = 'cmp-accordion__panel';
+
+  const grid = document.createElement('div');
+  grid.className = 'cmp-accordion__panel-grid';
 
   let currentGroup = null;
   let currentList = null;
@@ -30,7 +32,7 @@ function buildAccordionPanel(heading, subtitle, contentNodes) {
     if (tag === 'H4' || (tag === 'P' && node.querySelector('strong'))) {
       currentGroup = document.createElement('div');
       currentGroup.className = 'cmp-download';
-      body.append(currentGroup);
+      grid.append(currentGroup);
 
       const catHeading = document.createElement('h4');
       catHeading.className = 'cmp-download__title';
@@ -55,7 +57,7 @@ function buildAccordionPanel(heading, subtitle, contentNodes) {
         if (!currentGroup) {
           currentGroup = document.createElement('div');
           currentGroup.className = 'cmp-download';
-          body.append(currentGroup);
+          grid.append(currentGroup);
         }
         if (!currentList) {
           currentList = document.createElement('ul');
@@ -71,6 +73,7 @@ function buildAccordionPanel(heading, subtitle, contentNodes) {
     }
   });
 
+  body.append(grid);
   details.append(summary, body);
   return details;
 }
