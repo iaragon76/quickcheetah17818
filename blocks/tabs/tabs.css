@@ -159,42 +159,36 @@
   content: '';
   position: absolute;
   background-color: #7d8083;
-  transition: transform 0.3s, opacity 0.3s;
+  transition: transform 0.3s;
+  top: 50%;
+  left: 50%;
 }
 
 .tabs .cmp-accordion__icon::before {
-  top: 50%;
-  left: 25%;
-  right: 25%;
+  width: 16px;
   height: 2px;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
 }
 
 .tabs .cmp-accordion__icon::after {
-  left: 50%;
-  top: 25%;
-  bottom: 25%;
   width: 2px;
-  transform: translateX(-50%);
+  height: 16px;
+  transform: translate(-50%, -50%);
 }
 
-/* When open: show X (rotated +) */
+/* When open: rotate both lines 45deg to form X */
 .tabs details[open] .cmp-accordion__icon {
   border-color: #3e3f41;
 }
 
 .tabs details[open] .cmp-accordion__icon::before {
-  transform: translateY(-50%) rotate(45deg);
   background-color: #3e3f41;
-  left: 30%;
-  right: 30%;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .tabs details[open] .cmp-accordion__icon::after {
-  transform: translateX(-50%) rotate(45deg);
   background-color: #3e3f41;
-  top: 30%;
-  bottom: 30%;
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .tabs details[open] .cmp-accordion__button { margin-bottom: 0; }
