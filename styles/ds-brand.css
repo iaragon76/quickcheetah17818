@@ -171,7 +171,7 @@ a:hover {
   overflow: hidden;
   background: #ffffff;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   height: 100%;
   transition: box-shadow 0.3s;
 }
@@ -225,7 +225,7 @@ a:hover {
   transition: color 0.3s;
 }
 
-.ds-brand-teaser-card .cmp-teaser__action-link::after {
+.ds-brand-teaser-card .cmp-teaser__action-link::before {
   content: '';
   display: inline-block;
   width: 20px;
@@ -236,9 +236,10 @@ a:hover {
   mask-repeat: no-repeat;
   mask-position: center;
   transition: transform 0.3s;
+  flex-shrink: 0;
 }
 
-.ds-brand-teaser-card .cmp-teaser__action-link:hover::after {
+.ds-brand-teaser-card .cmp-teaser__action-link:hover::before {
   transform: translateX(4px);
 }
 
