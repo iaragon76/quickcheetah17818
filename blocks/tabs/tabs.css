@@ -72,26 +72,21 @@
   padding: 0;
 }
 
+.tabs .cmp-accordion__header {
+  list-style: none;
+  cursor: pointer;
+}
+
+.tabs .cmp-accordion__header::-webkit-details-marker { display: none; }
+
 .tabs .cmp-accordion__button {
   position: relative;
   display: block;
   width: 100%;
-  font-weight: 400;
-  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
-  color: #3e3f41;
-  text-align: left;
-  text-decoration: none;
-  background: none;
   padding: 32px 88px 32px 0;
   margin: 0;
-  border: none;
-  cursor: pointer;
-  list-style: none;
-  list-style-type: none;
+  color: #3e3f41;
 }
-
-.tabs .cmp-accordion__button::-webkit-details-marker { display: none; }
-.tabs summary.cmp-accordion__button { list-style: none; }
 
 .tabs .cmp-accordion__button:hover {
   color: #1072b9;
