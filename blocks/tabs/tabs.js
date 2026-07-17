@@ -1,25 +1,31 @@
 /* eslint-disable no-use-before-define */
 
-function buildAccordionPanel(heading, subtitle, contentNodes) {
-  const details = document.createElement('details');
-  details.className = 'cmp-accordion__item';
-  details.open = true;
+function buildAccordionPanel(heading, subtitle, contentNodes, isFirst) {
+  const item = document.createElement('div');
+  item.className = 'cmp-accordion__item';
+  if (isFirst) item.dataset.cmpExpanded = '';
 
-  const summary = document.createElement('summary');
-  summary.className = 'cmp-accordion__header';
-  const btn = document.createElement('span');
-  btn.className = 'cmp-accordion__button';
-  btn.innerHTML = `<span class="cmp-accordion__title">${heading}</span><span class="cmp-accordion__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/></svg></span>`;
-  summary.append(btn);
+  const header = document.createElement('h3');
+  header.className = 'cmp-accordion__header';
 
-  const body = document.createElement('div');
-  body.className = 'cmp-accordion__panel';
+  const button = document.createElement('button');
+  button.className = `cmp-accordion__button${isFirst ? ' cmp-accordion__button--expanded' : ''}`;
+  button.innerHTML = `<span class="cmp-accordion__title">${heading}</span><span class="cmp-accordion__icon"></span>`;
+  button.addEventListener('click', () => {
+    const expanded = button.classList.toggle('cmp-accordion__button--expanded');
+    panel.classList.toggle('cmp-accordion__panel--expanded', expanded);
+    panel.classList.toggle('cmp-accordion__panel--hidden', !expanded);
+  });
+  header.append(button);
+
+  const panel = document.createElement('div');
+  panel.className = `cmp-accordion__panel ${isFirst ? 'cmp-accordion__panel--expanded' : 'cmp-accordion__panel--hidden'}`;
 
   if (subtitle) {
     const sub = document.createElement('p');
     sub.className = 'cmp-accordion__subtitle';
     sub.textContent = subtitle;
-    body.append(sub);
+    panel.append(sub);
   }
 
   const grid = document.createElement('div');
@@ -76,9 +82,9 @@ function buildAccordionPanel(heading, subtitle, contentNodes) {
     }
   });
 
-  body.append(grid);
-  details.append(summary, body);
-  return details;
+  panel.append(grid);
+  item.append(header, panel);
+  return item;
 }
 
 export default async function decorate(block) {
@@ -134,11 +140,13 @@ export default async function decorate(block) {
     let currentHeading = null;
     let currentSubtitle = null;
     let currentContent = [];
+    let panelIndex = 0;
 
     elements.forEach((el) => {
       if (el.tagName === 'H3') {
         if (currentHeading) {
-          panel.append(buildAccordionPanel(currentHeading, currentSubtitle, currentContent));
+          panel.append(buildAccordionPanel(currentHeading, currentSubtitle, currentContent, panelIndex === 0));
+          panelIndex += 1;
         }
         currentHeading = el.textContent.trim();
         currentSubtitle = null;
@@ -156,7 +164,7 @@ export default async function decorate(block) {
     });
 
     if (currentHeading) {
-      panel.append(buildAccordionPanel(currentHeading, currentSubtitle, currentContent));
+      panel.append(buildAccordionPanel(currentHeading, currentSubtitle, currentContent, panelIndex === 0));
     }
   }
 
