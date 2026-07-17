@@ -151,3 +151,105 @@ a:hover {
   font-family: 'Noto Serif', Arial, Helvetica, sans-serif;
   color: #054E5A;
 }
+
+/* === ds-brand-teaser-card: from ac-group-lib/lib/teaser-card === */
+.ds-brand-teaser-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (width >= 900px) {
+  .ds-brand-teaser-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.ds-brand-teaser-card.ds-brand-filled-light .cmp-teaser {
+  gap: 0;
+  border-radius: 24px 24px 24px 0;
+  overflow: hidden;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
+  transition: box-shadow 0.3s;
+}
+
+.ds-brand-teaser-card.ds-brand-filled-light .cmp-teaser:hover {
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.ds-brand-teaser-card .cmp-teaser__content {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.ds-brand-teaser-card .cmp-teaser__title {
+  font-family: 'Noto Serif', Arial, Helvetica, sans-serif;
+  color: #054E5A;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.33;
+  margin: 0 0 12px;
+}
+
+@media (width >= 900px) {
+  .ds-brand-teaser-card .cmp-teaser__title {
+    font-size: 32px;
+    line-height: 1.375;
+  }
+}
+
+.ds-brand-teaser-card .cmp-teaser__description {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #3e3f41;
+  margin: 0;
+}
+
+.ds-brand-teaser-card .cmp-teaser__action-container {
+  margin-top: 24px;
+}
+
+.ds-brand-teaser-card .cmp-teaser__action-link {
+  color: #054E5A;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.3s;
+}
+
+.ds-brand-teaser-card .cmp-teaser__action-link::after {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12h14M12 5l7 7-7 7' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transition: transform 0.3s;
+}
+
+.ds-brand-teaser-card .cmp-teaser__action-link:hover::after {
+  transform: translateX(4px);
+}
+
+.ds-brand-teaser-card .cmp-teaser__image {
+  margin: 0;
+}
+
+.ds-brand-teaser-card .cmp-image__image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
