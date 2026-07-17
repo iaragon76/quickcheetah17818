@@ -162,6 +162,34 @@
   line-height: 1.5;
   margin: 0 0 24px;
 }
+
+.tabs .cmp-accordion__panel-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (width >= 900px) {
+  .tabs .cmp-accordion__panel-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .tabs .cmp-accordion__panel-grid .cmp-download:first-child {
+    grid-row: 1 / -1;
+  }
+
+  .tabs .cmp-accordion__panel-grid .cmp-download:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .tabs .cmp-accordion__panel-grid .cmp-download:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+
 /* cmp-download: from aem-core-lib/download */
 .tabs .cmp-download__title {
   font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
