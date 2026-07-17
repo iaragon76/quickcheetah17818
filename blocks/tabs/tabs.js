@@ -9,7 +9,7 @@ function buildAccordionPanel(heading, subtitle, contentNodes) {
   summary.className = 'cmp-accordion__header';
   const btn = document.createElement('span');
   btn.className = 'cmp-accordion__button';
-  btn.innerHTML = `<span class="cmp-accordion__title">${heading}</span><span class="cmp-accordion__icon"></span>`;
+  btn.innerHTML = `<span class="cmp-accordion__title">${heading}</span><span class="cmp-accordion__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="1" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2"/></svg></span>`;
   summary.append(btn);
 
   const body = document.createElement('div');
