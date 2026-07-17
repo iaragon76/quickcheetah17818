@@ -145,7 +145,10 @@ export default async function decorate(block) {
     elements.forEach((el) => {
       if (el.tagName === 'H3') {
         if (currentHeading) {
-          panel.append(buildAccordionPanel(currentHeading, currentSubtitle, currentContent, panelIndex === 0));
+          const isFirst = panelIndex === 0;
+          panel.append(buildAccordionPanel(
+            currentHeading, currentSubtitle, currentContent, isFirst,
+          ));
           panelIndex += 1;
         }
         currentHeading = el.textContent.trim();
@@ -153,18 +156,19 @@ export default async function decorate(block) {
         currentContent = [];
       } else if (el.classList && el.classList.contains('accordion-subtitle')) {
         currentSubtitle = el.textContent.trim();
+      } else if (!currentHeading) {
+        currentHeading = el.textContent.trim();
+        currentContent = [];
       } else {
-        if (!currentHeading) {
-          currentHeading = el.textContent.trim();
-          currentContent = [];
-        } else {
-          currentContent.push(el);
-        }
+        currentContent.push(el);
       }
     });
 
     if (currentHeading) {
-      panel.append(buildAccordionPanel(currentHeading, currentSubtitle, currentContent, panelIndex === 0));
+      const isFirst = panelIndex === 0;
+      panel.append(buildAccordionPanel(
+        currentHeading, currentSubtitle, currentContent, isFirst,
+      ));
     }
   }
 
