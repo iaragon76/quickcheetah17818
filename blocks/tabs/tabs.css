@@ -2,11 +2,11 @@
 .tabs .cmp-tabs__tablist {
   display: flex;
   flex-wrap: wrap;
-  padding-left: 0;
+  padding: 0;
   list-style: none;
   margin: 0;
-  background-color: #e3e5e9;
-  border-radius: 12px 12px 0 0;
+  background-color: #d0d4da;
+  border-radius: 16px 16px 0 0;
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -51,7 +51,10 @@
   outline-offset: 2px;
 }
 
-.tabs .cmp-tabs__panels { padding: 0; }
+.tabs .cmp-tabs__panels {
+  padding: 24px 32px 0;
+  border-top: 1px solid #d0d4da;
+}
 
 .tabs .cmp-tabs__tabpanel {
   animation: cmpFadeIn 0.3s ease;
@@ -71,6 +74,7 @@
 
 .tabs .cmp-accordion__button {
   position: relative;
+  display: block;
   width: 100%;
   font-weight: 400;
   font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
@@ -78,7 +82,7 @@
   text-align: left;
   text-decoration: none;
   background: none;
-  padding: 32px 60px 32px 0;
+  padding: 32px 88px 32px 0;
   margin: 0;
   border: none;
   cursor: pointer;

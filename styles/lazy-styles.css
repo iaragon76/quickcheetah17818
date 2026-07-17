@@ -69,7 +69,7 @@ main > .section.highlight {
 /* Overview of documents: teal container with white card */
 .overview-section {
   background-color: #054E5A !important;
-  padding: 48px 0 !important;
+  padding: 48px 0 64px !important;
   border-top: none !important;
 }
 
@@ -82,12 +82,18 @@ main > .section.highlight {
 .overview-section h2 {
   color: #ffffff !important;
   margin-bottom: 32px;
+  font-family: 'Noto Serif', Arial, Helvetica, sans-serif;
 }
 
 .overview-section .tabs-wrapper {
   background: #ffffff;
-  border-radius: 12px;
-  padding: 32px;
+  border-radius: 16px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.overview-section .tabs-wrapper .tabs {
+  padding: 0;
 }
 
 /* Sticky Feedback button (right side, gold) */
