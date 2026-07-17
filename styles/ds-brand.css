@@ -118,3 +118,36 @@ a {
 a:hover {
   color: #123f6d;
 }
+
+/* === cmp-teaser: from ac-group-lib/lib/teaser === */
+.cmp-teaser {
+  font-family: 'Noto Sans', Arial, Helvetica, sans-serif;
+}
+
+.cmp-teaser__pretitle {
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #054E5A;
+  margin: 0 0 8px;
+}
+
+.cmp-teaser__title {
+  font-family: 'Noto Serif', Arial, Helvetica, sans-serif !important;
+  color: #054E5A;
+  margin: 0.5em 0;
+}
+
+.cmp-teaser__description {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #3e3f41;
+  margin: 0;
+}
+
+/* === cmp-title: from ac-group-lib/lib/title === */
+.cmp-title__text {
+  font-family: 'Noto Serif', Arial, Helvetica, sans-serif;
+  color: #054E5A;
+}

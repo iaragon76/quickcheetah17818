@@ -111,32 +111,17 @@ main > .section.highlight {
   transform: rotate(180deg);
 }
 
-/* Page title styling */
-main h1 {
-  font-family: var(--heading-font-family);
-  font-weight: 500;
-  letter-spacing: -1px;
-  margin-top: 0;
-}
-
+/* Page title styling - handled by cmp-teaser classes in ds-brand.css */
 main h1 + p {
-  color: var(--color-text-light);
+  color: #3e3f41;
   font-size: 18px;
   font-family: var(--body-font-family);
   max-width: 700px;
-  line-height: 1.7;
+  line-height: 1.75;
   font-weight: 400;
 }
 
-/* Section label (e.g. "FINANCIALS") */
-.section-label {
-  color: var(--color-primary);
-  font-size: var(--body-font-size-xs);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 0;
-}
+/* Section label - now handled by cmp-teaser__pretitle */
 
 /* Hero section with teal-tinted background */
 main > .section:first-of-type {
