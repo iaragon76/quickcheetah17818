@@ -87,9 +87,11 @@
   border: none;
   cursor: pointer;
   list-style: none;
+  list-style-type: none;
 }
 
 .tabs .cmp-accordion__button::-webkit-details-marker { display: none; }
+.tabs summary.cmp-accordion__button { list-style: none; }
 
 .tabs .cmp-accordion__button:hover {
   color: #1072b9;
@@ -138,8 +140,6 @@
   font-weight: 400;
   color: #7d8083;
   line-height: 1.5;
-}
-  color: inherit;
 }
 
 .tabs .cmp-accordion__icon {
