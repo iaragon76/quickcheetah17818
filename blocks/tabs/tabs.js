@@ -9,8 +9,10 @@ function buildAccordionPanel(heading, subtitle, contentNodes, isFirst) {
   header.className = 'cmp-accordion__header';
 
   const button = document.createElement('button');
-  button.className = `cmp-accordion__button${isFirst ? ' cmp-accordion__button--expanded' : ''}`;
-  button.innerHTML = `<span class="cmp-accordion__title">${heading}</span><span class="cmp-accordion__icon"></span>`;
+  const btnClass = isFirst ? ' cmp-accordion__button--expanded' : '';
+  button.className = `cmp-accordion__button${btnClass}`;
+  button.innerHTML = '<span class="cmp-accordion__title">'
+    + `${heading}</span><span class="cmp-accordion__icon"></span>`;
   button.addEventListener('click', () => {
     const expanded = button.classList.toggle('cmp-accordion__button--expanded');
     panel.classList.toggle('cmp-accordion__panel--expanded', expanded);
@@ -19,7 +21,8 @@ function buildAccordionPanel(heading, subtitle, contentNodes, isFirst) {
   header.append(button);
 
   const panel = document.createElement('div');
-  panel.className = `cmp-accordion__panel ${isFirst ? 'cmp-accordion__panel--expanded' : 'cmp-accordion__panel--hidden'}`;
+  const panelState = isFirst ? 'expanded' : 'hidden';
+  panel.className = `cmp-accordion__panel cmp-accordion__panel--${panelState}`;
 
   if (subtitle) {
     const sub = document.createElement('p');
@@ -146,9 +149,8 @@ export default async function decorate(block) {
       if (el.tagName === 'H3') {
         if (currentHeading) {
           const isFirst = panelIndex === 0;
-          panel.append(buildAccordionPanel(
-            currentHeading, currentSubtitle, currentContent, isFirst,
-          ));
+          const acc = buildAccordionPanel(currentHeading, currentSubtitle, currentContent, isFirst);
+          panel.append(acc);
           panelIndex += 1;
         }
         currentHeading = el.textContent.trim();
@@ -166,9 +168,8 @@ export default async function decorate(block) {
 
     if (currentHeading) {
       const isFirst = panelIndex === 0;
-      panel.append(buildAccordionPanel(
-        currentHeading, currentSubtitle, currentContent, isFirst,
-      ));
+      const acc = buildAccordionPanel(currentHeading, currentSubtitle, currentContent, isFirst);
+      panel.append(acc);
     }
   }
 
